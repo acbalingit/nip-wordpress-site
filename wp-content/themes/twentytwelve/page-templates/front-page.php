@@ -27,6 +27,15 @@ get_header(); ?>
 				<?php get_template_part( 'content', 'page' ); ?>
 
 			<?php endwhile; // end of the loop. ?>
+		<div class='row'>
+			<div class='col-md-4'>
+				<?php while ( have_posts() ) : the_post(); ?>
+                                <?php get_template_part( 'content', 'page' ); ?>
+                                <?php comments_template( '', true ); ?>
+                        	<?php endwhile; // end of the loop. ?>
+			</div>
+		
+		</div>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
