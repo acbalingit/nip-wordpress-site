@@ -28,21 +28,19 @@ get_header(); ?>
 
 			<?php endwhile; // end of the loop. ?>
 		<div class='row'>
-			<div class='col-md-4'>
-				<h1>News and Announcements</h1>
+			<div class='col-md-5 entry-content'>
+				<h1><a href='/category/announcement/'>News and Announcements</a></h1>
 				<?php query_posts('category_name=announcement&showposts=5'); ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+				<?php while ( have_posts() ) : the_excerpt(); ?>
                                 <?php get_template_part( 'content', 'page' ); ?>
-                                <?php comments_template( '', true ); ?>
                         	<?php endwhile; // end of the loop. ?>
 			</div>
 		
-                        <div class='col-md-4'>
-                                <h1>Seminars and Talks</h1>
+                        <div class='col-md-5 entry-content'>
+                                <h1><a href='/category/seminar/'>Seminars and Talks</a></h1>
                                 <?php query_posts('category_name=seminar&showposts=5'); ?>
-                                <?php while ( have_posts() ) : the_post(); ?>
+                                <?php while ( have_posts() ) : the_excerpt(); ?>
                                 <?php get_template_part( 'content', 'page' ); ?>
-                                <?php comments_template( '', true ); ?>
                                 <?php endwhile; // end of the loop. ?>
                         </div>
 		</div>
