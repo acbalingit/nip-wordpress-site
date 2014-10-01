@@ -29,12 +29,22 @@ get_header(); ?>
 			<?php endwhile; // end of the loop. ?>
 		<div class='row'>
 			<div class='col-md-4'>
+				<h2>Latest News</h2>
+				<?php query_posts('category_name=news&showposts=5'); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
                                 <?php get_template_part( 'content', 'page' ); ?>
                                 <?php comments_template( '', true ); ?>
                         	<?php endwhile; // end of the loop. ?>
 			</div>
 		
+                        <div class='col-md-4'>
+                                <h2>Seminars and Talks</h2>
+                                <?php query_posts('category_name=seminar&showposts=5'); ?>
+                                <?php while ( have_posts() ) : the_post(); ?>
+                                <?php get_template_part( 'content', 'page' ); ?>
+                                <?php comments_template( '', true ); ?>
+                                <?php endwhile; // end of the loop. ?>
+                        </div>
 		</div>
 
 		</div><!-- #content -->
