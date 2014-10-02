@@ -31,14 +31,14 @@ get_header(); ?>
 			<div class='col-md-5 entry-content'>
 				<h1><a href='/category/announcement/'>News and Announcements</a></h1>
 				<?php query_posts('category_name=announcement&showposts=5'); ?>
-				<?php while ( have_posts() ) : the_excerpt(); ?>
+				<?php while ( have_posts() ) : the_post(); ?>
             	<?php endwhile; // end of the loop. ?>
 			</div>
 		
             <div class='col-md-5 entry-content'>
 	            <h1><a href='/category/seminar/'>Seminars and Talks</a></h1>
 	            <?php query_posts('category_name=seminar&showposts=5'); ?>
-	            <?php while ( have_posts() ) : the_excerpt(); ?>
+	            <?php while ( have_posts() ) : the_post(); ?>
 	            <?php endwhile; // end of the loop. ?>
             </div>
 		</div>
