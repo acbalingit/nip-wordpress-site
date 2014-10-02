@@ -31,7 +31,48 @@ get_header(); ?>
 			<div class='col-md-5 entry-content'>
 				<h1><a href='/category/announcement/'>News and Announcements</a></h1>
 				<?php query_posts('category_name=announcement&showposts=5'); ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+
+<!-- Start of the Loop -->
+<?php if (have_posts()) : ?>
+<?php while (have_posts()) : the_post(); ?>
+<?php if ( $post->post_excerpt ) : // If there is an explicitly defined excerpt ?>
+<div class="excerpt-post clearfix">
+<h2 id="post-<?php the_ID(); ?>">
+<a href="<?php the_permalink() ?>" rel="bookmark" accesskey="s"><?php the_title(); ?></a>
+</h2>
+<div class="catslist"><?php the_category(' and '); ?></div>
+<div class="entry">
+<?php the_excerpt(); ?><br />
+<div class="readmore">
+<a href="<?php the_permalink(); ?>">CONTINUE READING</a>
+</div>
+</div> <!--end of entry -->
+<!-- <?php trackback_rdf(); ?> -->
+</div><!-- end of excerpt-post -->
+<?php else : // If there is not an explictly defined excerpt ?>
+<div class="excerpt-post clearfix">
+<h2 id="post-<?php the_ID(); ?>">
+<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a>
+</h2>
+<div class="catslist"><?php the_category(' and '); ?></div>
+<div class="entry">
+<?php the_content('<span class="readmore">CONTINUE READING</span>'); ?>
+</div><!-- end of entry -->
+<!-- <?php trackback_rdf(); ?> -->
+</div><!-- end of excerpt-post -->
+<?php endif; // End the excerpt vs. content "if" statement ?>
+<?php endwhile; else: ?>
+<h2 class="center">Page Not Found</h2>
+<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+<p><?php _e('To help you find the information you seek, 
+we recommend you check out our 
+<a title="Camera on the Road Site Map" href="sitemap.php">Site Map</a> 
+to help track down what you are looking for.'); ?></p>
+<?php include (TEMPLATEPATH . "/searchform.php"); ?>
+<?php endif; ?>
+<!--end Loop -->
+
+
             	<?php endwhile; // end of the loop. ?>
 			</div>
 		
