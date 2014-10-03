@@ -11,9 +11,10 @@
 ?>
 	</div><!-- #main .wrapper -->
 	<footer id="colophon" role="contentinfo">
-		<div class="site-info">
-			National Institute of Physics, University of the Philippines, <br/>
-			Diliman 1101 Quezon City, Philippines <br/>
+		<div class="site-info" style='line-height: 1.3em'>
+			National Institute of Physics, 
+			University of the Philippines, Diliman <br/> 
+			Quezon City 1101, Philippines <br/>
 			Telephone: +63 2 981 8500 loc. 3701-03 <br/>
 
 			<!-- <?php do_action( 'twentytwelve_credits' ); ?> -->
