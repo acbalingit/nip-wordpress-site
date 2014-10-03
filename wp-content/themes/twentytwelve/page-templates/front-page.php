@@ -31,8 +31,14 @@ get_header(); ?>
 			<div class='col-md-5 entry-content'>
 				<h1><a href='/category/announcement/'>News and Announcements</a></h1>
 				<?php query_posts('category_name=announcement&showposts=5'); ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-                <?php get_template_part( 'content', 'page' ); ?>
+<?php if ( have_posts() ) while ( have_posts() ) : the_post();
+			echo '<h2>' . $post->post_title . '</h2>';
+			if (empty($post->post_excerpt))
+				the_content();
+			else
+				echo '<p>' . $post->post_excerpt . '</p>';
+		endwhile; ?>
+		                <?php get_template_part( 'content', 'page' ); ?>
             	<?php endwhile; // end of the loop. ?>
 			</div>
 		
