@@ -32,7 +32,7 @@ get_header(); ?>
 				<h1><a href='/category/announcement/'>News and Announcements</a></h1>
 				<?php query_posts('category_name=announcement&showposts=5'); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
-                <?php get_template_part( 'loop', 'index' ); ?>
+                <?php get_template_part( 'content', 'page' ); ?>
             	<?php endwhile; // end of the loop. ?>
 			</div>
 		
@@ -40,7 +40,7 @@ get_header(); ?>
 	            <h1><a href='/category/seminar/'>Seminars and Talks</a></h1>
 	            <?php query_posts('category_name=seminar&showposts=5'); ?>
 	            <?php while ( have_posts() ) : the_post(); ?>
-	            <?php get_template_part( 'loop', 'index' ); ?>
+	            <?php get_template_part( 'content', 'page' ); ?>
 	            <?php endwhile; // end of the loop. ?>
             </div>
 		</div>
