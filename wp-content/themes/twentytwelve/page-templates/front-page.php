@@ -42,9 +42,9 @@ get_header(); ?>
                 <?php query_posts('category_name=seminar&showposts=5'); ?>
                 <?php if (have_posts()) : ?>
                   <!-- <?php if (($wp_query->post_count) > 1) : ?> -->
-                    <?php while (have_posts()) : the_content('Read more.'); ?>
+                    <?php while (have_posts()) : the_post();the_content('Read more.'); ?>
                     <!-- Do your post header stuff here for excerpts-->
-                    <!--?php the_content('Read more.') ?-->
+                    <!--?php  ?-->
                     <!-- Do your post footer stuff here for excerpts-->
                     <?php endwhile; ?>
                   <!-- <?php endif; ?> -->
