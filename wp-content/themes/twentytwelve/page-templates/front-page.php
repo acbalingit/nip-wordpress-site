@@ -28,21 +28,15 @@ get_header(); ?>
 
             <?php endwhile; // end of the loop. ?>
         <div class='row'>
-            <div class='col-md-5 entry-content'>
+            <div class='col-md-6 entry-content'>
                 <h1><a href='/category/announcement/'>News and Announcements</a></h1>
                 <?php query_posts('category_name=announcement&showposts=5'); ?>
-                <?php if (have_posts()) : ?>
-                  <!-- <?php if (($wp_query->post_count) > 1) : ?> -->
-                    <?php while (have_posts()) : the_post(); ?>
-                    <!-- Do your post header stuff here for excerpts-->
-                    <?php the_excerpt() ?>
-                    <!-- Do your post footer stuff here for excerpts-->
-                    <?php endwhile; ?>
-                  <!-- <?php endif; ?> -->
-                <?php endif; ?>
+                <?php while ( have_posts() ) : the_post(); ?>
+                <?php get_template_part( 'content', 'page' ); ?>
+                <?php endwhile; // end of the loop. ?>
             </div>
         
-            <div class='col-md-5 entry-content'>
+            <div class='col-md-6 entry-content'>
                 <h1><a href='/category/seminar/'>Seminars and Talks</a></h1>
                 <?php query_posts('category_name=seminar&showposts=5'); ?>
                 <?php if (have_posts()) : ?>
