@@ -44,7 +44,7 @@ get_header(); ?>
 				  <!-- <?php if (($wp_query->post_count) > 1) : ?> -->
 				    <?php while (have_posts()) : the_post(); ?>
 				    <!-- Do your post header stuff here for excerpts-->
-				    <?php the_excerpt() ?>
+				    <?php the_content() ?>
 				    <!-- Do your post footer stuff here for excerpts-->
 				    <?php endwhile; ?>
 				  <!-- <?php endif; ?> -->
