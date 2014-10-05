@@ -39,9 +39,29 @@ get_header(); ?>
             <div class='col-md-5 entry-content'>
 	            <h1><a href='/category/seminar/'>Seminars and Talks</a></h1>
 	            <?php query_posts('category_name=seminar&showposts=5'); ?>
-	            <?php while ( have_posts() ) : the_post(); ?>
-	            <?php get_template_part( 'content', 'page' ); ?>
-	            <?php endwhile; // end of the loop. ?>
+<?php if (have_posts()) : ?>
+
+  <?php if (($wp_query->post_count) > 1) : ?>
+     <?php while (have_posts()) : the_post(); ?>
+       <!-- Do your post header stuff here for excerpts-->
+          <?php the_excerpt() ?>
+       <!-- Do your post footer stuff here for excerpts-->
+     <?php endwhile; ?>
+
+  <?php else : ?>
+
+     <?php while (have_posts()) : the_post(); ?>
+       <!-- Do your post header stuff here for single post-->
+          <?php the_content() ?>
+       <!-- Do your post footer stuff here for single post-->
+     <?php endwhile; ?>
+
+  <?php endif; ?>
+
+<?php else : ?>
+     <!-- Stuff to do if there are no posts-->
+
+<?php endif; ?>
             </div>
 		</div>
 
