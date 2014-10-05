@@ -43,7 +43,7 @@ get_header(); ?>
                 <?php if (have_posts()) : ?>
                     <?php while (have_posts()) : the_post(); ?>
                     <!-- Do your post header stuff here for single post-->
-                      <?php the_content() ?>
+                      <?php the_excerpt() ?>
                     <!-- Do your post footer stuff here for single post-->
                     <?php endwhile; ?>
                 <?php endif; ?>
