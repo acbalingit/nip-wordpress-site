@@ -41,13 +41,11 @@ get_header(); ?>
                 <h1><a href='/category/seminar/'>Seminars and Talks</a></h1>
                 <?php query_posts('category_name=seminar&showposts=5'); ?>
                 <?php if (have_posts()) : ?>
-                  <!-- <?php if (($wp_query->post_count) > 1) : ?> -->
                     <?php while (have_posts()) : the_post(); ?>
-                    <!-- Do your post header stuff here for excerpts-->
-                    <?php the_content() ?>
-                    <!-- Do your post footer stuff here for excerpts-->
+                    <!-- Do your post header stuff here for single post-->
+                      <?php the_content() ?>
+                    <!-- Do your post footer stuff here for single post-->
                     <?php endwhile; ?>
-                  <!-- <?php endif; ?> -->
                 <?php endif; ?>
             </div>
         </div>
