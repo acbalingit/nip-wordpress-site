@@ -26,7 +26,8 @@ get_header(); ?>
 
                 <?php get_template_part( 'content', 'page' ); ?>
 
-            <?php endwhile; // end of the loop. ?>
+            <?php endwhile; // end of the loop. ?>\
+
         <div class='row'>
             <div class='col-md-6 entry-content'>
                 <h1><a href='/category/announcement/'>News and Announcements</a></h1>
@@ -41,9 +42,9 @@ get_header(); ?>
                 <?php query_posts('category_name=seminar&showposts=5'); ?>
                 <?php if (have_posts()) : ?>
                   <!-- <?php if (($wp_query->post_count) > 1) : ?> -->
-                    <?php while (have_posts()) : the_post(); ?>
+                    <?php while (have_posts()) : the_content('Read more.'); ?>
                     <!-- Do your post header stuff here for excerpts-->
-                    <?php the_content('Read more.') ?>
+                    <!--?php the_content('Read more.') ?-->
                     <!-- Do your post footer stuff here for excerpts-->
                     <?php endwhile; ?>
                   <!-- <?php endif; ?> -->
