@@ -38,17 +38,23 @@ get_header(); ?>
 		
             <div class='col-md-5 entry-content'>
 	            <h1><a href='/category/seminar/'>Seminars and Talks</a></h1>
-
 				<?php query_posts('category_name=seminar&showposts=5'); ?>
-				<?php if (have_posts()) : ?>
-				  <!-- <?php if (($wp_query->post_count) > 1) : ?> -->
-				    <?php while (have_posts()) : the_post(); ?>
-				    <!-- Do your post header stuff here for excerpts-->
-				    <?php the_content() ?>
-				    <!-- Do your post footer stuff here for excerpts-->
-				    <?php endwhile; ?>
-				  <!-- <?php endif; ?> -->
-				<?php endif; ?>
+
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) : the_post();
+
+				  /* Include the post format-specific template for the content. If you want to
+				   * this in a child theme then include a file called called content-___.php
+				   * (where ___ is the post format) and that will be used instead.
+				   */
+				  get_template_part( 'content', get_post_format() );
+
+				endwhile;
+
+				twentytwelve_content_nav( 'nav-below' );
+				?>
+
 
 	            </div>
 		</div>
