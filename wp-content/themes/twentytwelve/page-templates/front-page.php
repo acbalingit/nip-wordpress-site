@@ -44,7 +44,7 @@ get_header(); ?>
                     <?php while (have_posts()) : the_post(); ?>
                       <h2><?php the_title() ?></h2>
                     <!-- Do your post header stuff here for single post-->
-                      <?php the_excerpt() ?>
+                      <?php echo $post->post_content ?>
                     <!-- Do your post footer stuff here for single post-->
                     <?php endwhile; ?>
                 <?php endif; ?>
